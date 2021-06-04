@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.FormCard {
+  margin: 50px;
+  padding: 20px 35px;
+  border: black 3px;
+  border-style: double;
+}
+
+.TeamCard {
+  margin: 10px auto;
+  max-width: 25%;
+  padding: 15px 0px 20px;
+  border: gray 5px groove;
+  
+}
