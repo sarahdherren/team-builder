@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Form = (props) => {
 
-    const { values, update, submit } = props;
+    const { values, setFormValues, update, submit, edit } = props;
 
     const changeHandler = e => {
         const inputName = e.target.name
@@ -14,6 +14,10 @@ const Form = (props) => {
         e.preventDefault()
         submit()
     }
+
+    useEffect(() => {
+        edit && setFormValues(edit)
+    }, [edit])
 
     return(
         <div className='FormCard'>
@@ -45,7 +49,7 @@ const Form = (props) => {
                         </label>
                         <label>Phone
                             <div className='field'>
-                                <input type='tel' name='phone' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={values.phone} onChange={changeHandler} />
+                                <input type='tel' name='phone' value={values.phone} onChange={changeHandler} />
                             </div>
                         </label>
                         requested format: 123-456-7890
