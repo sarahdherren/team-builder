@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { v4 as uuidv4 } from 'uuid';
 import Form from './components/Form';
+import Member from './components/Member';
 
 const teamMembers = [{
   id: uuidv4(),
@@ -77,17 +78,7 @@ function App() {
     <div className="App">
       <Form update={updateForm} submit={submitForm} values={formValues} edit={memberToEdit} setFormValues={setFormValues} />
       {teamList.map(member => (
-        <div className='TeamCard'>
-          <div >
-          <h2>{member.firstName} {member.lastName}</h2> 
-          <p>{member.position}</p>
-        </div>
-        <div>
-            <p>{member.phone}</p>
-            <p>{member.email}</p>
-        </div>
-        <button onClick={()=>editHandler(member)}>Edit</button>
-        </div>
+        <Member key={uuidv4()} member={member} editHandler={editHandler} />
       ))}
     </div>
   );
